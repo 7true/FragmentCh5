@@ -17,6 +17,6 @@ public class MainActivity extends AppCompatActivity implements Communicator {
         FragmentManager fragmentManager = getSupportFragmentManager();
         WithTextViewFragment withTextViewFragment =
                 (WithTextViewFragment) fragmentManager.findFragmentById(R.id.fragment_withTextView);
-        
+        withTextViewFragment.changeText(data);
     }
 }

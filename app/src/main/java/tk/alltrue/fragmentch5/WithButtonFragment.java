@@ -26,7 +26,17 @@ public class WithButtonFragment extends Fragment implements View.OnClickListener
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mCommunicator = (Communicator)getActivity();
+        mCommunicator = (Communicator) getActivity();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (outState == null) {
+            mCounter = 0;
+        } else {
+            mCounter = outState.getInt("counter", 0);
+        }
     }
 
     @Override
