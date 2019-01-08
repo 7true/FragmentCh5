@@ -17,6 +17,11 @@ public class WithButtonFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_with_button, container, false);
+        if (savedInstanceState == null) {
+            mCounter = 0;
+        } else {
+            mCounter = savedInstanceState.getInt("counter", 0);
+        }
         View rootView = inflater.inflate(R.layout.fragment_with_button, container, false);
         Button button = (Button) rootView.findViewById(R.id.button);
         button.setOnClickListener(this);
@@ -32,11 +37,7 @@ public class WithButtonFragment extends Fragment implements View.OnClickListener
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (outState == null) {
-            mCounter = 0;
-        } else {
-            mCounter = outState.getInt("counter", 0);
-        }
+        outState.putInt("counter", mCounter);
     }
 
     @Override
