@@ -20,7 +20,7 @@ public class WithTextViewFragment extends Fragment {
         mTextView = (TextView) rootView.findViewById(R.id.textView);
 
         if(savedInstanceState == null){
-
+            mTextView.setText("I calculated 0 cats");
         }else {
             mData = savedInstanceState.getString("text");
             mTextView.setText(mData);
