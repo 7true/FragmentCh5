@@ -16,24 +16,26 @@ public class WithTextViewFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setRetainInstance(true);
         View rootView = inflater.inflate(R.layout.fragment_with_textview, container, false);
         mTextView = (TextView) rootView.findViewById(R.id.textView);
 
+/*
         if(savedInstanceState == null){
             mTextView.setText("I calculated 0 cats");
         }else {
             mData = savedInstanceState.getString("text");
             mTextView.setText(mData);
-        }
+        }*/
 
         return rootView;
     }
 
-    @Override
+    /*@Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("text", mData);
-    }
+    }*/
 
     public void changeText(String data) {
         mData = data;

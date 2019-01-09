@@ -16,12 +16,13 @@ public class WithButtonFragment extends Fragment implements View.OnClickListener
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setRetainInstance(true);
         //return inflater.inflate(R.layout.fragment_with_button, container, false);
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             mCounter = 0;
         } else {
             mCounter = savedInstanceState.getInt("counter", 0);
-        }
+        }*/
         View rootView = inflater.inflate(R.layout.fragment_with_button, container, false);
         Button button = (Button) rootView.findViewById(R.id.button);
         button.setOnClickListener(this);
@@ -32,13 +33,14 @@ public class WithButtonFragment extends Fragment implements View.OnClickListener
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mCommunicator = (Communicator) getActivity();
+        mCommunicator.count("I calculated " + mCounter + " cats");
     }
-
+/*
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("counter", mCounter);
-    }
+    }*/
 
     @Override
     public void onClick(View view) {
